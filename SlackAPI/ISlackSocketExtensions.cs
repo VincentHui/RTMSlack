@@ -24,5 +24,14 @@ namespace Pook.SlackAPI
                 text = message
             };
         }
+        public static void SendChannel(this ISlackSocket socket, string message, string p_channel)
+        {
+            var msg = new Message
+            {
+                channel = p_channel,
+                text = message
+            };
+            socket.Send(msg);
+        }
     }
 }

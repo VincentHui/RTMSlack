@@ -51,7 +51,8 @@ namespace Pook.SlackAPI
 		public IReadOnlyCollection<IMessageResponder> Responders => responders;
 		public Func<ISlackSocket, Message, SlackUser, Task> DefaultResponder { get; set; }
 
-		public SlackSocket AddEventHandler(Type eventHandlerType)
+
+        public SlackSocket AddEventHandler(Type eventHandlerType)
 		{
 			bool isHandler = eventHandlerType.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEventHandler<>));
 			if (!isHandler)
